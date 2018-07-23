@@ -17,17 +17,18 @@ $(function() {
         /*Test to ensure URL has been defined and that is not empty in allFeeds object */
         it('feeds url are not empty', function(){
             for (const feed of allFeeds) {
+                expect(feed.url).toBeDefined(); //error handling (if 'feed url is not defined. test will fail with error instead of just failing due undefined variable')
                 expect(feed.url).not.toBe('');
-                expect(feed.url.length).not.toBe(0);   
+                expect(feed.url.length).not.toBe(0);
             }
         })
 
         /*Test to ensure NAME has been defined and that is not empty in allFeeds object */
          it('feeds name are not empty', function(){
              for (const feed of allFeeds) {
-                 expect(feed.name).not.toBe('');
-                 expect(feed.name.length).not.toBe(0);
-                 
+                expect(feed.name).toBeDefined(); //error handling, test if feed.name has been defined
+                expect(feed.name).not.toBe('');
+                expect(feed.name.length).not.toBe(0);
              }
          })
     });
